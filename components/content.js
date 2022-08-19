@@ -4,14 +4,20 @@ import {View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 're
 import TopContent from "./topContent";
 import ButtonContent from "./buttonContent";
 
-const Content = () => {
+const Content = (props) => {
     return(
         <View>
-            <TopContent />
+            <TopContent 
+            username={props.name}
+            profilepic={props.profilePictures}
+            />
             <View style={styles.image_container}>
-            <Image style={styles.imageStyle} source={{ uri: 'https://aie-internship.com/wp-content/uploads/Co-workers-working-in-start-up-office.jpg', }}  />
+            <Image style={styles.imageStyle} source={{ uri: props.contentPhoto, }}  />
             </View>
-            <ButtonContent />
+            <ButtonContent 
+            comment={props.comment}
+            commentOwner={props.commentOwner}
+            />
         </View>
     );
 };
